@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap with responsive banner ads</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+   <style type="text/css">
+	
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      
+    </style>
+    
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+
+  
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png"-->
+  </head>
+
+  <body>
+
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+  
+          <span class="brand" style="color:white;">Bootstrap with responsive banner ads</span>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="content">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+<div class='row'>
+  <div class='span12'>
+    <div id="size"></div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='span12'>
+    <div id="size"></div>
+  </div>
+</div>
+
+<img src="" id="topbanner">
+
+      <!-- Example row of columns -->
+      <div class="row">
+		
+        <div class="span5">
+          <h2>About</h2>
+          <p>This sample code (powered by <a href="http://www.w3masters.nl/">W3Masters</a>, <a href="https://github.com/sparkbox/mediaCheck">mediaCheck</a> and <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> demonstrates how you can use responive banner ads with Twitter bootstrap or other responsive html5 solutions.</p>
+<p>This example implements the Toppler strategy from <a href="http://www.responsiveads.com/ad-formats-showcase/">Ad Formats &amp; Showcase</a>.</p>
+
+<p>Please resize your browser window or load this page in <a href="http://responsinator.com/?url=http%3A%2F%2Fw3masters.nl%2Fresponsiveads%2F">Responsinator.com</a>
+
+<p>Based on device (screenwidth / viewport) different formats of graphic banners are shown. Also the banner postion change.
+Banners of the following formats are used: 160x600, 728x90, 468x60 and 320x50 (width x height in pixels).</p>
+
+<p>Only loads banners which will be used. Every banner load is a real view for your stats. Banners will not resized or hide by CSS.</p>
+
+<p>The strategy use three breakpoints: 768, 480 and 320 pixels.</p>
+        </div>
+        <div class="span4">
+          <h2>Download</h2>
+          <p>Please download, comment and fork this code on GitHub</p>
+          <p><a class="btn btn-success" href="https://github.com/bassjobsen/bootstrap-responsive-ads">Download code &raquo;</a></p>
+  
+          <h2>references/tools:</h2>
+     <ul>
+      <li>
+        <a href='http://bassjobsen.weblogs.fm/'>blog</a>
+      </li>
+      <li>
+		  <a href="https://github.com/sparkbox/mediaCheck">mediaCheck</a>
+	  </li>	  
+      <li>
+        <a href='http://twitter.github.com/bootstrap/'>Twitter Bootstrap</a>
+      </li>
+      <li>
+        <a href='http://jquery.com/'>jQuery</a>
+      </li>
+           
+      <li>
+        <a href='http://www.opensourcecms.eu/'>OpensourceCMS.EU</a>
+      </li>
+    </ul>
+    <p>This code is used by <a href="http://www.gizzing.nl/">Gizzing</a></p>
+        </div>
+        
+      <div class="span3"><img src="" id="sidebanner"></div> 
+        
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; <a href="http://www.w3masters.nl/">w3Masters</a> 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/mediaCheck-min.js"></script>
+<script>
+$(function() {
+  
+  
+  mediaCheck({
+    media: '(max-width: 767px) and (min-width: 481px)',
+    entry: function() {
+
+      $('#topbanner').attr("src", "banners/728x90.png");
+      $('#sidebanner').attr("src", "");
+      
+      }
+  });
+  
+    mediaCheck({
+    media: '(max-width: 480px) and (min-width: 321px)',
+    entry: function() {
+ 
+      $('#topbanner').attr("src", "banners/468x60.png");
+      $('#sidebanner').attr("src", "");
+    
+      }
+    
+  });
+  
+   mediaCheck({
+    media: '(max-width: 320px)',
+    entry: function() {
+
+	  $('#topbanner').attr("src", "banners/320x50.png");
+      $('#sidebanner').attr("src", "");
+     
+    }
+    
+  });
+
+    mediaCheck({
+    media: '(min-width: 768px)',
+    entry: function() {
+
+      $('#sidebanner').attr("src", "banners/160x600.png");
+      $('#topbanner').attr("src", "");
+    
+    }
+  });
+  
+});
+</script>
+  </body>
+</html>
+
