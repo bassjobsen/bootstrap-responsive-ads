@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap Wysihtml5 with Custom Image Insert and Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+   <style type="text/css">
+	
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      
+        #breakpoint1 {display:none;}
+		#breakpoint2 {display:none;}
+		#breakpoint3 {display:none;}
+		#breakpoint4 {display:none;}
+		
+		
+	  @media (max-width: 767px) and (min-width: 481px)
+      {
+		
+		  #breakpoint3 {display:inline;}
+		
+	  }	  
+	  @media (max-width: 480px) and (min-width: 321px)
+      {
+		  
+		  #breakpoint2 {display:inline;}
+		
+	  }	 
+	  @media (max-width: 320px)
+      {
+		  #breakpoint1 {display:inline;}
+
+	  }	 
+	  @media (min-width: 768px)
+      {
+		 
+		  #breakpoint4 {display:inline;}
+	  }	
+      
+      
+ 			
+      
+      
+    </style>
+    
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+
+  
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png"-->
+  </head>
+
+  <body>
+
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+  
+          <span class="brand" style="color:white;">Bootstrap with reponsive ads</span>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="content">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+<div class='row'>
+	
+  <div class='span12'>
+	  <h2>CSS media queries:</h2>
+    <div id="breakpoint1">width &lt;= 320px</div>
+    <div id="breakpoint2">320px &gt; width &lt;= 480px</div>
+    <div id="breakpoint3">481px &gt; width &lt;= 767px</div>
+    <div id="breakpoint4">width &gt;= 768px</div>
+  </div>
+</div>      
+      
+      
+      
+<div class='row'>
+	
+<div class='span12'>
+	  <h2>mediaCheck</h2>
+    <div id="size"></div>
+  </div>
+</div>
+
+
+<div class='row'>
+	<div class='span12'>
+		  <h2>enquire.js</h2>
+		<div id="sizemm"></div>
+	</div>
+</div>
+
+
+      <hr>
+
+      <footer>
+        <p>&copy; <a href="http://www.w3masters.nl/">w3Masters</a> 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/mediaCheck-min.js"></script>
+
+	<script src="//cdn.jsdelivr.net/modernizr/2.6.2/modernizr.min.js"></script>
+<script>
+
+Modernizr.load([
+    //first test need for polyfill
+    {
+        test: window.matchMedia,
+        nope: "js/matchMedia.js"
+    },
+
+    //and then load enquire
+    "js/enquire.js",
+    "js/doenquire.js"
+]); 	
+	
+$(function() {
+  
+  
+  mediaCheck({
+    media: '(max-width: 767px) and (min-width: 481px)',
+    entry: function() {
+	  $('#size').html('481px > width <= 767px');	
+       
+      }
+  });
+  
+    mediaCheck({
+    media: '(max-width: 480px) and (min-width: 321px)',
+    entry: function() {
+	  $('#size').html('320px > width <= 480px');  
+    
+      }
+    
+  });
+  
+   mediaCheck({
+    media: '(max-width: 320px)',
+    entry: function() {
+	  $('#size').html('width <= 320px'); 	
+
+     
+    }
+    
+  });
+
+    mediaCheck({
+    media: '(min-width: 768px)',
+    entry: function() {
+	  $('#size').html('width >= 768px');
+
+    
+    }
+  });
+  
+            //var mql = window.matchMedia('screen and (color) and (orientation: landscape) and (min-width: 600px) and (min-height: 400px)');
+            //console.log(mql);  
+  
+  
+
+
+
+
+});
+</script>
+  </body>
+</html>
+
